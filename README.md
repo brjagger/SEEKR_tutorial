@@ -149,12 +149,14 @@ This will contain a filetree that should look similar to the one you made with S
 
 ## Visualizing MD simulation results ##
 
-In the project directory, navigate to one of the anchors and then in to the 
-"md" directory. From here you can visualize the results of any of the MD simulations by loading .prmtop file located in the building directory and any of the .dcd trajectories located in the simulation directories.
+In the project directory, navigate to anchor_4* and then in to the 
+"md" directory. From here you can visualize the results of the ensemble equilibration MD simulations by loading 
+.prmtop file located in the building directory and any of the .dcd trajectories located in the ens_equil 
+directory in VMD.
 
-I suggest looking at the ens_equil trajectory. Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
+ Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
 
-In the fwd_rev directory, you will see a sub-directory named "traj" this contains many short MD trajectories from each of the reversal and forward simulations. **only type `ls` here with caution**
+In the fwd_rev directory, you will see some .out files that contain all of the milestone transition events that occured in the simulation. These are pulled from the NAMD output and placed in this file for simplicity.
 
 
 ## Calculating Kinetic Parameters ##
