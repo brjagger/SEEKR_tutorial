@@ -19,7 +19,22 @@ We will now fill out the remainder with the appropriate parameters for our syste
 make the `rootdir` the appropriate location for your machine (probably /scratch)
 
 In the NAMD TCl block, the `ligrange` corresponds to the atom numbers of the aspirin ligand and
-`recrange` corresponds to the atom numbers of the cyclodextrin.
+`recrange` corresponds to the atom numbers of the cyclodextrin. 
+If you look in the .pdb files of the host and guest, you will see that the cyclodextrin is residues 
+1 to 147 and the ligand is 20 residues (therefore 148 to 168).
+
+In the "Active Sites" block, we need to define the binding site and the vector along which to place
+the milestones.
+The `r` setting specivies the milestone spacing in Angstroms, **set this to 1.5**
+the `r_low` value corresponds to the starting milesone radius in angstroms-- **set this to 1.5 also**
+the `x,y,z` values correspond to the coordinates of our bound state. To get these we will need to use 
+VMD.
+
+from the tutorial directory, execute `VMD inputs bcd_q4md_holo_wet.pdb`. this will load the cyclodextrin 
+structure for us.
+
+open the tkconsole `
+ 
 
 
 
