@@ -1,4 +1,4 @@
-# Simulation Enables Estimation of Kinetic Rates (SEEKR): a multiscale simulation approach for calculating binding kinetics
+# Simulation Enables Estimation of Kinetic Rates (SEEKR): a Multiscale Simulation Approach for Calculating Binding Kinetics
 
 In this tutorial, you will learn the basics of setting up a SEEKR simulation to calculate the binding kinetics of 
 a model host-guest system, beta-cyclodextrin with aspirin. 
@@ -25,16 +25,142 @@ If you look in the .pdb files of the host and guest, you will see that the cyclo
 
 In the "Active Sites" block, we need to define the binding site and the vector along which to place
 the milestones.
-The `r` setting specivies the milestone spacing in Angstroms, **set this to 1.5**
+The `r` setting specifies the outermost milestone spacing in Angstroms, **set this to 13.5**
 the `r_low` value corresponds to the starting milesone radius in angstroms-- **set this to 1.5 also**
 the `x,y,z` values correspond to the coordinates of our bound state. To get these we will need to use 
 VMD.
 
-from the tutorial directory, execute `VMD inputs bcd_q4md_holo_wet.pdb`. this will load the cyclodextrin 
+From the tutorial directory, execute `VMD inputs bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
 structure for us.
 
-open the tkconsole `
- 
+Open the tkconsole `Extensions -> Tk Console` we will use this to get the COM coordinates of our molecule.
+
+In the Tk Console, type `set site [atomselect top "resname "MGO]` this will store this selection in te variable `site`
+The type `measure center $site`. the output will be the x, y, z coordinates of the cyclodextrin ceter of mass.
+
+Set thes in the corresponding lines in the SEEKR input file.
+Mine was:
+`x 0.0275, y -0.0459, z 0.4599,`
+
+Then type in the Tk console `$site get serial` and enter this for the atomid filed.
+
+Now we need to choose where to place the ligand on each milestone.
+
+In the tutorial directory, there should be a script called 'moduseful.tcl'. In the tkconsole window, type "source moduseful.tcl". Then run the following 
+command:
+
+ `eye_vec "0.0275, -0.0459, 0.4599"`
+
+ (These are the coordinates for the center of binding site). 
+
+The script should draw a thin line running from the binding site to where your eye was on the screen. Rotate the molecule to see the line. In order to obtain a good result for this vector, you will want to rotate your view in VMD so that you can see directly into the binding pocket. You can use the above command to draw another line, note the values for the vector. Don't worry about the magnitude of this line, SEEKR will automatically normalize it.
+
+Set the 'vx', 'vy', 'vz' values to be the values you obtained.
+
+My values were
+
+`vx -3.503, vy -11.602, vz 82.823`
+
+The parameters 'startvx', 'startvy', and 'startvz' allow more control over how the ligand is arranged along the milestones. This vector points from the origin to the location on the first milestone where to start the (vx, vy, vz) vector. If unsure how to modify this, then make 'startvx', 'startvy', and 'startvz' to be the same as 'vx', 'vy', and 'vz'.
+
+Set the increment to be 1.5, this is the spacing between milestones in Angstroms. 
+
+Alternatively, you can manually specify the placement of milestones using the
+`radius list` option and provide a string of distances (e.g. 1 2 3 4 6 8 )
+
+the option looks like this: `radius_list 1 1.5 2 2.5 3 4 6 8 10 12 14`
+
+NOTE: the radius lis option will override the increment option
+
+for our example, using evenly spaced milestones generated with `increment` will be just fine.
+
+I have already filled out the MD parameters block for you to save some time. For our host-guest example, the leap commands are somewhat complicated in order to build the cyclodextrin parameter file, but for typical protein-ligand systems this is more striaghtforward.
+
+After the leap inputs, you should see parameter specificatins for each of the 
+simulation phases of the milestoning calculation: 
+
+* Minimization
+* Temperature Equilibration
+* Ensemble Equilibration
+* Reversal and Forward
+* Brownian Dynamics and APBS
+
+Again, I have filled these out for the sake of time, but take a look at the parameters for each section.
+
+
+**Be sure to save your input file!**
+
+You are now ready to run SEEKR, do this by executing the command
+
+`python /path/to/SEEKR/bin/seekr.py bcd_aspirin_q4md.seekr`
+
+The program may take take a few minutes to complete. 
+Once finished, you will see the folder 'tryp' in the directory you provided as 
+'root_dir'.
+
+The directory contains a filetree that SEEKR constructed. Inside, you will see several folders that begin with the word 'anchor' and a folder that is called 'b_surface'. Additionally, you will see a milestones.xml file, which the program uses to represent the milestone surfaces, and will be used for analysis in the end. There are also several '.pkl' files. The '.pkl' files are python "pickle" files that allow subsequent runs of seekr.py to be completed more quickly and easily, but you will never interact with them.
+
+The directories that begin with "anchor" are designed to be informative. The format looks like: "anchor_A_B_C_D_E_F_G" The numbers correspond to:
+
+A: The index of the milestone (can be positional or rotational)
+B: The index of the positional milestone
+C: The site ID for multiple binding locations on the receptor
+D: The X-coordinate of the anchor (location where the center-of-mass of the ligand was placed)
+E: The Y-coordinate of the anchor (location where the center-of-mass of the ligand was placed)
+F: The Z-coordinate of the anchor (location where the center-of-mass of the ligand was placed)
+G: The index of the rotational milestone. (Until this feature is fully developed, it is likely only to be zero.)
+
+Each anchor directory corresponds to a milestone surface. Since we set the 
+'reject_clashes' option to 'True', it is likely that some anchors were not 
+created because the ligand had a steric clash with the receptor. This is 
+highly dependent on the vector generated by 'eye_vec'. The missing anchors can 
+always be added later, but for now we will continue with just those created 
+here.
+
+Look inside one of the directories that begins with 'anchor'. In these 
+directories, you will see at least one subdirectory "md", and in the outermost 
+one you'll see the subdirectory 'bd'. Look inside the "md" subdirectory. You 
+will see the directories: "building", "min", "temp_equil", "ens_equil", and 
+"fwd_rev" directories. You'll also see a "holo_wet.pdb" structure. Take a look 
+at the structure in VMD and verify that it looks OK.
+
+Look inside the "building" directory. Inside will be a LEAP file used to 
+prepare a PRMTOP and INPCRD file, as well as LEAP output and a PDB file 
+generated by LEAP. The LEAP output file can be useful for debugging problems 
+running LEAP in other projects.
+
+Back up into the "md" folder. The other directories will be useful for running 
+preparations of this particular milestone for simulation.
+
+Now back up two directories and enter the "b_surface" directory. Inside here 
+are a number of files that will be used for BD simulations starting at this 
+anchor.
+
+## Running MD and BD Simulations ##
+
+We do not have time to actually run the simulations for this tutorial, as they can take hours to days to complete. However, I have provided you with all the data so that we can do some analysis. 
+
+Unzip the file by executing:
+
+`tar -xzf $FILENAME`
+
+This will contain a filetree that should look similar to the one you made with SEEKR.
+
+
+## Visualizing MD simulation results ##
+
+In the project directory, navigate to one of the anchors and then in to the 
+"md" directory. From here you can visualize the results of any of the MD simulations by loading .prmtop file located in the building directory and any of the .dcd trajectories located in the simulation directories.
+
+I suggest looking at the ens_equil trajectory. Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
+
+In the fwd_rev directory, you will see a sub-directory named "traj" this contains many short MD trajectories from each of the reversal and forward simulations. **only type `ls` here with caution**
+
+
+## Calculating Kinetic Parameters ##
+
+
+
 
 
 
