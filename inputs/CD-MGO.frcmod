@@ -1,0 +1,47 @@
+remark goes here
+MASS
+C  12.010        0.616               same as c  
+H  1.008         0.161               same as hn 
+O  16.000        0.434               same as o  
+
+BOND
+C -H     0.00   0.000       ATTN, need revision
+C -O   648.00   1.214       same as c -o 
+C -C   290.10   1.550       same as c -c 
+O -H     0.00   0.000       ATTN, need revision
+
+ANGLE
+C -C -H     0.000       0.000   ATTN, need revision
+C -C -O    67.160     120.990   same as c -c -o 
+C -C -C    62.300     111.680   same as c -c -c 
+C -O -C     0.000       0.000   ATTN, need revision
+H -C -O     0.000       0.000   ATTN, need revision
+O -C -O    78.170     130.380   same as o -c -o 
+C -O -H     0.000       0.000   ATTN, need revision
+H -C -H     0.000       0.000   ATTN, need revision
+
+DIHE
+C -C -O -H    1    0.000         0.000           0.000      ATTN, need revision
+C -C -C -H    1    0.300       180.000           2.000      same as X -c -c -X 
+C -C -C -O    1    0.300       180.000           2.000      same as X -c -c -X 
+C -C -C -C    1    0.300       180.000           2.000      same as X -c -c -X 
+C -O -C -C    1    0.000         0.000           0.000      ATTN, need revision
+C -O -C -H    1    0.000         0.000           0.000      ATTN, need revision
+H -C -C -H    1    0.300       180.000           2.000      same as X -c -c -X 
+H -C -C -O    1    0.300       180.000           2.000      same as X -c -c -X 
+O -C -C -O    1    0.300       180.000           2.000      same as X -c -c -X 
+O -C -O -C    1    0.000         0.000           0.000      ATTN, need revision
+H -C -O -H    1    0.000         0.000           0.000      ATTN, need revision
+
+IMPROPER
+C -H -C -O          1.1          180.0         2.0          Using default value
+C -C -C -H          1.1          180.0         2.0          Using default value
+C -H -C -H          1.1          180.0         2.0          Using default value
+
+NONBON
+  C           1.9080  0.0860             same as c  
+  H           0.6000  0.0157             same as hn 
+  O           1.6612  0.2100             same as o  
+
+
+

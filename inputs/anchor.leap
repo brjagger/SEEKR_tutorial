@@ -1,0 +1,16 @@
+source leaprc.ff14SB
+source leaprc.gaff
+loadamberprep 1-butanol.prepc
+loadamberparams 1-butanol.frcmod
+
+mol = loadpdb 1-butanol.pdb
+
+charge mol 
+check mol
+saveamberparm mol 1-butanol.prmtop 1-butanol.inpcrd
+savepdb mol 1-butanol_leap.pdb 
+
+
+
+quit
+

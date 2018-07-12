@@ -1,0 +1,17 @@
+source leaprc.ff14SB
+source leaprc.gaff
+loadamberprep cD.prepc
+loadamberparams cD.frcmod
+
+mol = loadpdb bcd_dry_initial.pdb
+
+charge mol
+check mol
+saveamberparm mol bcd_dry_initial.prmtop bcd_dry_initial.inpcrd
+savepdb mol bcd_dry_initial_leap.pdb
+
+
+
+quit
+
+
