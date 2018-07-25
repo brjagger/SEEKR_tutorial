@@ -97,7 +97,7 @@ simulation phases of the milestoning calculation:
 * Temperature Equilibration
 * Ensemble Equilibration
 * Reversal and Forward
-* Brownian Dynamics and APBS
+* Brownian Dynamics 
 
 Again, I have filled these out for the sake of time, but take a look at the parameters for each section.
 
