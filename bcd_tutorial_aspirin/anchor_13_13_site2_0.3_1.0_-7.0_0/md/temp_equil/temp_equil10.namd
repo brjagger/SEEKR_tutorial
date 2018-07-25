@@ -1,0 +1,93 @@
+#**********************************************************
+#  Name SEEKR temperature equilibration
+#  Date 2018-02-12
+#  * Generated with the SEEKR Automatic NAMD input file generator by Lane Votapka
+#**********************************************************
+
+set inpname	temp_equil9
+set outname	temp_equil10
+firsttimestep	        0
+
+
+# Input Files
+parmfile                ../building/holo.parm7
+ambercoor               ../building/holo.rst7
+binCoordinates          $inpname.restart.coor
+temperature             320.0
+extendedSystem          $inpname.restart.xsc
+
+
+# Output
+xstFile                 $outname.xst
+xstFreq                 1000
+outputname              $outname
+dcdfile                 $outname.dcd
+restartname             $outname.restart
+restartfreq             1000
+dcdfreq                 1000
+binaryoutput            yes
+outputEnergies          1000
+outputtiming            1000
+
+
+# Simulation Parameters
+amber                   yes
+readExclusions          yes
+exclude                 scaled1-4
+1-4scaling              0.833333
+scnb                    2.0
+cutoff                  8 
+switching               off 
+margin                  0.0
+zeroMomentum            off
+ljCorrection            on
+rigidBonds              all
+rigidTolerance          1e-8
+rigidIterations         100
+useSettle               on
+
+
+# Integrator Parameters
+timestep                2.0
+nonbondedFreq           1
+FullElectFrequency      1
+stepspercycle           10
+
+
+# Particle Mesh Ewald (PME) Settings
+PME                     yes
+PMEGridSpacing          1.0
+
+
+# Constant Temperature Control
+langevin                on
+langevinTemp            320.0
+langevinDamping         5
+langevinHydrogen        no
+
+
+# Pressure Control
+useGroupPressure        no
+useFlexibleCell         no
+useConstantArea         no
+
+
+# Periodic Boundary Conditions (PBC)
+wrapWater               on
+wrapAll                 off
+wrapNearest             on
+
+
+# Fixed Atoms
+fixedAtoms              on
+fixedAtomsFile          fxd1.pdb
+fixedAtomsCol           O
+
+
+numsteps                1000
+
+
+
+
+
+
