@@ -44,26 +44,26 @@ the `r_low` value corresponds to the starting milesone radius in angstroms-- **s
 the `x,y,z` values correspond to the coordinates of our bound state. To get these we will need to use 
 VMD.
 
-From the tutorial directory, execute `VMD inputs bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
+From the tutorial directory, execute `VMD inputs/bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
 structure for us.
 
 Open the tkconsole `Extensions -> Tk Console` we will use this to get the COM coordinates of our molecule.
 
-In the Tk Console, type `set site [atomselect top "resname "MGO]` this will store this selection in te variable `site`
-The type `measure center $site`. the output will be the x, y, z coordinates of the cyclodextrin ceter of mass.
+In the Tk Console, type ```set site [atomselect top "resname MGO"]``` this will store this selection in te variable `site`
+The type ```measure center $site```. the output will be the x, y, z coordinates of the cyclodextrin ceter of mass.
 
 Set thes in the corresponding lines in the SEEKR input file.
 Mine was:
 `x 0.0275, y -0.0459, z 0.4599,`
 
-Then type in the Tk console `$site get serial` and enter this for the atomid filed.
+Then type in the Tk console ```$site get serial``` and enter this for the atomid filed.
 
 Now we need to choose where to place the ligand on each milestone.
 
 In the tutorial directory, there should be a script called 'moduseful.tcl'. In the tkconsole window, type "source moduseful.tcl". Then run the following 
 command:
 
- `eye_vec "0.0275, -0.0459, 0.4599"`
+ ```eye_vec "0.0275, -0.0459, 0.4599"```
 
  (These are the coordinates for the center of binding site). 
 
@@ -106,7 +106,7 @@ Again, I have filled these out for the sake of time, but take a look at the para
 
 You are now ready to run SEEKR, do this by executing the command
 
-`python /path/to/SEEKR/bin/seekr.py bcd_aspirin_q4md.seekr`
+```python /path/to/SEEKR/bin/seekr.py bcd_aspirin_q4md.seekr```
 
 The program may take take a few minutes to complete. 
 Once finished, you will see the folder 'tryp' in the directory you provided as 
@@ -152,31 +152,48 @@ anchor.
 
 ## Running MD and BD Simulations ##
 
-We do not have time to actually run the simulations for this tutorial, as they can take hours to days to complete. However, I have provided you with all the data so that we can do some analysis. 
+We do not have time to actually run the MD and BD simulations for this tutorial, as they can take hours to days to complete. However, I have provided you with all the data so that we can do some analysis. 
 
 Unzip the file by executing:
 
-`tar -xzf $FILENAME`
+```tar -xzf $FILENAME```
 
 This will contain a filetree that should look similar to the one you made with SEEKR.
 
 
 ## Visualizing MD simulation results ##
 
-In the project directory, navigate to anchor_4* and then in to the 
+In the project directory, navigate to anchor_4* and then into the 
 "md" directory. From here you can visualize the results of the ensemble equilibration MD simulations by loading 
 .prmtop file located in the building directory and any of the .dcd trajectories located in the ens_equil 
 directory in VMD.
 
- Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
+**Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
 
 In the fwd_rev directory, you will see some .out files that contain all of the milestone transition events that occured in the simulation. These are pulled from the NAMD output and placed in this file for simplicity.
 
 
 ## Calculating Kinetic Parameters ##
 
+To analyze our milestoning siulations, SEEKR possesses a script called `analyze.py`
 
+This script can:
 
+- calculate k_on and k_off as well as error estimates
+- calculate a binding free energy profile
+- Perform convergence analysis: 
+   * plot calculated rate constants vs. reversal number
+   * plot transition counts (in and out) per milestone vs. reversal number 
+   * plot transition probability per milestone vs. reversal number
+   * plot incubation time per milestone vs. reversal number
+   
+analze.py requires a few basic inputs (with additional options for the various calculation types):
+   
+   - a milestones.xml file which contains basic information about each milestone (name, path, milestone distance, etc.)
+   - output files from MD and BD simulations to parse for transition events
+   - definition of which milestones correspond to the bound state
+
+execute ``` python analyze.py -h``` for more information about useage as well as additional arguments.
 
 
 
