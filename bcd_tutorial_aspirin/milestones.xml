@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<root>
+  <temperature>298.0</temperature>
+  <md_time_factor>2.0</md_time_factor>
+  <bd_time_factor>1000.0</bd_time_factor>
+  <site>
+    <name>site1</name>
+    <milestone>
+      <index>0</index>
+      <fullname>0_0_site1_-0.0_-0.3_1.9</fullname>
+      <directory>anchor_0_0_site1_-0.0_-0.3_1.9_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.035274029103602195, -0.25380873127604697, 1.944094522537152)</anchor>
+      <end>True</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>1.5</radius>
+    </milestone>
+    <milestone>
+      <index>1</index>
+      <fullname>1_1_site1_-0.1_-0.5_3.4</fullname>
+      <directory>anchor_1_1_site1_-0.1_-0.5_3.4_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.098048058207204386, -0.46171746255209395, 3.4282890450743038)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>3.0</radius>
+    </milestone>
+    <milestone>
+      <index>2</index>
+      <fullname>2_2_site1_-0.2_-0.7_4.9</fullname>
+      <directory>anchor_2_2_site1_-0.2_-0.7_4.9_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.16082208731080658, -0.66962619382814093, 4.9124835676114564)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>4.5</radius>
+    </milestone>
+    <milestone>
+      <index>3</index>
+      <fullname>3_3_site1_-0.2_-0.9_6.4</fullname>
+      <directory>anchor_3_3_site1_-0.2_-0.9_6.4_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.22359611641440877, -0.87753492510418785, 6.3966780901486082)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>6.0</radius>
+    </milestone>
+    <milestone>
+      <index>4</index>
+      <fullname>4_4_site1_-0.3_-1.1_7.9</fullname>
+      <directory>anchor_4_4_site1_-0.3_-1.1_7.9_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.28637014551801099, -1.0854436563802348, 7.88087261268576)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>7.5</radius>
+    </milestone>
+    <milestone>
+      <index>5</index>
+      <fullname>5_5_site1_-0.3_-1.3_9.4</fullname>
+      <directory>anchor_5_5_site1_-0.3_-1.3_9.4_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.34914417462161318, -1.2933523876562818, 9.3650671352229118)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>9.0</radius>
+    </milestone>
+    <milestone>
+      <index>6</index>
+      <fullname>6_6_site1_-0.4_-1.5_10.8</fullname>
+      <directory>anchor_6_6_site1_-0.4_-1.5_10.8_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.41191820372521537, -1.5012611189323288, 10.849261657760064)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>10.5</radius>
+    </milestone>
+    <milestone>
+      <index>7</index>
+      <fullname>7_7_site1_-0.5_-1.7_12.3</fullname>
+      <directory>anchor_7_7_site1_-0.5_-1.7_12.3_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.47469223282881756, -1.7091698502083759, 12.333456180297215)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>12.0</radius>
+    </milestone>
+    <milestone>
+      <index>8</index>
+      <fullname>8_8_site1_-0.5_-1.9_13.8</fullname>
+      <directory>anchor_8_8_site1_-0.5_-1.9_13.8_0</directory>
+      <shape>sphere</shape>
+      <anchor>(-0.53746626193241975, -1.9170785814844229, 13.817650702834367)</anchor>
+      <end>True</end>
+      <bd>True</bd>
+      <md>False</md>
+      <radius>13.5</radius>
+    </milestone>
+    <milestone>
+      <index>9</index>
+      <fullname>9_0_site2_0.1_0.2_-1.0</fullname>
+      <directory>anchor_9_9_site2_0.1_0.2_-1.0_0</directory>
+      <shape>sphere</shape>
+      <anchor>(0.090274029103602188, 0.16200873127604698, -1.024294522537152)</anchor>
+      <end>True</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>1.5</radius>
+    </milestone>
+    <milestone>
+      <index>10</index>
+      <fullname>10_1_site2_0.2_0.4_-2.5</fullname>
+      <directory>anchor_10_10_site2_0.2_0.4_-2.5_0</directory>
+      <shape>sphere</shape>
+      <anchor>(0.15304805820720438, 0.36991746255209396, -2.5084890450743043)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>3.0</radius>
+    </milestone>
+    <milestone>
+      <index>11</index>
+      <fullname>11_2_site2_0.2_0.6_-4.0</fullname>
+      <directory>anchor_11_11_site2_0.2_0.6_-4.0_0</directory>
+      <shape>sphere</shape>
+      <anchor>(0.21582208731080657, 0.57782619382814093, -3.992683567611456)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>4.5</radius>
+    </milestone>
+    <milestone>
+      <index>12</index>
+      <fullname>12_3_site2_0.3_0.8_-5.5</fullname>
+      <directory>anchor_12_12_site2_0.3_0.8_-5.5_0</directory>
+      <shape>sphere</shape>
+      <anchor>(0.27859611641440873, 0.78573492510418785, -5.4768780901486078)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>6.0</radius>
+    </milestone>
+    <milestone>
+      <index>13</index>
+      <fullname>13_4_site2_0.3_1.0_-7.0</fullname>
+      <directory>anchor_13_13_site2_0.3_1.0_-7.0_0</directory>
+      <shape>sphere</shape>
+      <anchor>(0.34137014551801093, 0.99364365638023489, -6.9610726126857596)</anchor>
+      <end>False</end>
+      <bd>False</bd>
+      <md>True</md>
+      <radius>7.5</radius>
+    </milestone>
+  </site>
+</root>

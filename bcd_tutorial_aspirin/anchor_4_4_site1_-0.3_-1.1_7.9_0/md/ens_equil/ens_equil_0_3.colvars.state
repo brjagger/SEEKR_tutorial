@@ -1,0 +1,17 @@
+configuration {
+  step    100000000
+  dt 2.000000e+00
+  version 2016-11-28-namd-2-12
+}
+
+colvar {
+  name radius
+  x  7.46861672645211e+00
+}
+
+restraint {
+  configuration {
+    name umbradius
+  }
+}
+
