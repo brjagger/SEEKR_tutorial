@@ -10,6 +10,23 @@ You will:
 4. Construct a milestoning model and calculate rates
 5. Perform convergence analysis
 
+## SEEKR Requirements
+
+To run a complete SEEKR calculation, you will need the following installed:
+* VMD for visualization http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
+* NAMD molecular dynamics package http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD 
+* BrownDye for BD simulations https://browndye.ucsd.edu/
+* LEaP when using the AMBER forcefield http://ambermd.org/GetAmber.php
+* APBS for electrostatics calculations
+* Python version 2 (2.7 or later) with the following packages
+   - numpy
+   - scipy
+   - MDAnalysis
+  
+   
+  
+
+
 
 ## Preparing the SEEKR input file
 In the tutorial directory, you will find the SEEKR input file "bcd_aspirin.seekr".
