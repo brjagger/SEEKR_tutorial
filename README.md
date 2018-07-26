@@ -218,7 +218,7 @@ Similarly, we can calculate a binding free energy profile:
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0 --free_energy ```
 
 
-## SEEEKR Convergence analysis
+## SEEEKR Convergence Analysis
 
 SEEKR now has the capability to perform basic convergence analysis/estimates.
 
@@ -234,12 +234,12 @@ We can do the same for the off rate:
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off --conv_filename off_conv.txt --conv_stride 100```
 
 
-We can then plot the data in the outputted text files using somethinng like xmgrace
+We can then plot the data in the output text files using somethinng like xmgrace. You may need to delete the header line
+in this file depending on your plotting program
 
 
-SEEKR can also provide convergence estimates per milestone.
-
-to do this execute the command 
+SEEKR can also provide convergence estimates on a per milestone basis.
+ 
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100```
 
