@@ -193,7 +193,20 @@ analze.py requires a few basic inputs (with additional options for the various c
    - output files from MD and BD simulations to parse for transition events
    - definition of which milestones correspond to the bound state
 
-execute ``` python analyze.py -h``` for more information about useage as well as additional arguments.
+Execute ``` python analyze.py -h``` for more information about useage as well as additional arguments.
+
+The filetree `bcd_tutorial_aspirin` has all of the data we need to calculate the kinetic rate constants of interest.
+
+Let's first calculate k_on...
+
+Inside the bcd_tutorial_aspirin directory, execute
+
+```python PATH/TO/SEEKR_tutorial/bin/analyze.py -m milestones.xml -b 0,9 --on -v ```
+
+This calculates the on rate using both milestone 0 and 9 as bound states, aka sink states.
+
+SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix and incubation time vector that can
+be used to calculate the on rate
 
 
 
