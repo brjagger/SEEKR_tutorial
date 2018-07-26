@@ -18,7 +18,7 @@ To run a complete SEEKR calculation, you will need the following installed:
 * BrownDye for BD simulations https://browndye.ucsd.edu/
 * LEaP when using the AMBER forcefield http://ambermd.org/GetAmber.php
 * APBS for electrostatics calculations http://apbs-pdb2pqr.readthedocs.io/en/latest/downloads.html
-* Python version 2 (2.7 or later) with the following packages:
+* Python version 2 (2.7 or later) with the following packages (I recommend using Anaconda):
    - numpy
    - scipy
    - MDAnalysis
