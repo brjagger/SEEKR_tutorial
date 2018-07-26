@@ -201,13 +201,47 @@ Let's first calculate k_on...
 
 Inside the bcd_tutorial_aspirin directory, execute
 
-```python PATH/TO/SEEKR_tutorial/bin/analyze.py -m milestones.xml -b 0,9 --on -v ```
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --on -v ```
 
 This calculates the on rate using both milestone 0 and 9 as bound states, aka sink states.
 
-SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix and incubation time vector that can
-be used to calculate the on rate
+SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix and 
+incubation time vector that can be used to calculate the on rate. You will see a lot of output because of the addition of the verbose flag, take some time to inspect this.
 
+
+The off rate can be calculated in exacytly the same way usting the --off flag: 
+
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
+
+Similarly, we can calculate a binding free energy profile:
+
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0 --free_energy ```
+
+
+## SEEEKR Convergence analysis
+
+SEEKR now has the capability to perform basic convergence analysis/estimates.
+
+First lets look at the convergence of the on and off rates.
+execute :
+
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --on --conv_filename on_conv.txt --conv_stride 100```
+
+This will calculate the on rate every 100 reversals.
+
+We can do the same for the off rate:
+
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off --conv_filename off_conv.txt --conv_stride 100```
+
+
+We can then plot the data in the outputted text files using somethinng like xmgrace
+
+
+SEEKR can also provide convergence estimates per milestone.
+
+to do this execute the command 
+
+```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100```
 
 
  
