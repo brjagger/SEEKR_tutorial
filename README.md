@@ -44,7 +44,7 @@ the `r_low` value corresponds to the starting milesone radius in angstroms-- **s
 the `x,y,z` values correspond to the coordinates of our bound state. To get these we will need to use 
 VMD.
 
-From the tutorial directory, execute `VMD inputs/bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
+From the tutorial directory, execute `vmd inputs/bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
 structure for us.
 
 Open the tkconsole `Extensions -> Tk Console` we will use this to get the COM coordinates of our molecule.
