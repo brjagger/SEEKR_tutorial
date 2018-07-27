@@ -196,7 +196,7 @@ Execute ``` python analyze.py -h``` for more information about useage as well as
 
 The filetree `bcd_tutorial_aspirin` has all of the data we need to calculate the kinetic rate constants of interest.
 
-**Calculate the On Rate
+**Calculate the On Rate**
 
 Inside the bcd_tutorial_aspirin directory, execute
 
@@ -207,13 +207,13 @@ This calculates the on rate using both milestone 0 and 9 as bound states, aka si
 SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix and 
 incubation time vector that can be used to calculate the on rate. You will see a lot of output because of the addition of the verbose flag, take some time to inspect this.
 
-**Calculating the Off Rate
+**Calculating the Off Rate**
 
 The off rate can be calculated in exacytly the same way usting the --off flag: 
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
 
-Similarly, we can calculate a binding free energy profile:
+Similarly, we can calculate a **binding free energy profile**:
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0 --free_energy ```
 
@@ -222,7 +222,7 @@ Similarly, we can calculate a binding free energy profile:
 
 SEEKR now has the capability to perform basic convergence analysis/estimates.
 
-First lets look at the convergence of the on and off rates.
+First lets look at the convergence of the **on and off rates**.
 execute :
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --on --conv_filename on_conv.txt --conv_stride 100```
@@ -238,7 +238,7 @@ We can then plot the data in the output text files using somethinng like xmgrace
 in this file depending on your plotting program
 
 
-SEEKR can also provide convergence estimates on a per milestone basis.
+SEEKR can also provide **convergence estimates on a per milestone basis**.
  
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100 --plt_name Aspirin_Q4MD```
@@ -247,7 +247,7 @@ Two .png figures will be saved, one that plots the incubation time of each miles
 
 ```gimp Aspirin_Q4MD_Incubation_Time_Convergence.png```
 
-These plots should give yo a general idea of which milestones are sufficiently sampled, which are potentially undersampled, 
+These plots should give a general idea of which milestones have been sufficiently sampled, which are potentially undersampled, 
 and which contribute most to the calculated rate constants.
 
 analyze.py also writes out .pkl files of the raw data and the figures so that additional postprocessing may be performed as desired.
