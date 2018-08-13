@@ -109,7 +109,7 @@ You are now ready to run SEEKR, do this by executing the command
 ```python /path/to/SEEKR/bin/seekr.py bcd_aspirin_q4md.seekr```
 
 The program may take take a few minutes to complete. 
-Once finished, you will see the folder 'tryp' in the directory you provided as 
+Once finished, you will see the folder 'bcd_aspirin' in the directory you provided as 
 'root_dir'.
 
 The directory contains a filetree that SEEKR constructed. Inside, you will see several folders that begin with the word 'anchor' and a folder that is called 'b_surface'. Additionally, you will see a milestones.xml file, which the program uses to represent the milestone surfaces, and will be used for analysis in the end. There are also several '.pkl' files. The '.pkl' files are python "pickle" files that allow subsequent runs of seekr.py to be completed more quickly and easily, but you will never interact with them.
