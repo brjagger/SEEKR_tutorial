@@ -10,6 +10,9 @@ You will:
 
 ## SEEKR Requirements
 
+The most recent version of SEEKR can be obtained here: https://github.com/nbcrrolls/SEEKR
+
+
 The abbreviated tutorial requires the following installed:
 * VMD for visualization http://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=VMD
 * BrownDye for BD simulations https://browndye.ucsd.edu/
@@ -23,7 +26,7 @@ The abbreviated tutorial requires the following installed:
  If you are using the virtual machine that we have distributed, everything is already installed for you!
    
    
-## The SEEKR input file
+## The SEEKR Input File
 
 In the SEEKR tutorial directory, you will find the SEEKR input file ```bcd_aspirin_complete.seekr```.
 Open this file with a text editor. This is a completed input file that was used to generate the 
@@ -55,7 +58,7 @@ Take a look at the parameters for each section...
 At this point, you would now be ready to run SEEKR. For this tutorial, I have already done this for you.
 
 
-## The SEEKR filetree 
+## The SEEKR Filetree 
 
 * The output from running SEEKR is a directory called ```bcd_tutorial_aspirin```.
 
@@ -95,7 +98,7 @@ anchor.
 * We do not have time to actually run the MD and BD simulations for this tutorial, as they can take hours to days to complete. 
 However, I have provided you with all the data so that we can do some analysis. 
 
-## Visualizing MD simulation results ##
+## Visualizing MD Simulation Results ##
 
 In the project directory, navigate to ```anchor_4*``` again and then into the 
 "md" directory. From here you can visualize the results of the ensemble equilibration MD simulations by loading 
