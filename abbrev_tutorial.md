@@ -104,7 +104,7 @@ directory in VMD.
 
 ```vmd ../building/holo.parm7 sample_traj.dcd```
 
-**Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.
+**Notice how the ligand was restrained at the appropriate distance for the corresponding milestone.**
 
 In the fwd_rev directory, you will see some .out files that contain all of the milestone transition events that occured in the simulation. These are pulled from the NAMD output and placed in this file for simplicity.
 
