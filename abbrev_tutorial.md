@@ -114,7 +114,7 @@ In the fwd_rev directory, you will see some .out files that contain all of the m
 
 ## Calculating Kinetic Parameters ##
 
-To analyze our milestoning siulations, SEEKR possesses a script called `analyze_conv.py`
+To analyze our milestoning simulations, SEEKR possesses a script called `analyze_conv.py`
 
 This script can:
 
