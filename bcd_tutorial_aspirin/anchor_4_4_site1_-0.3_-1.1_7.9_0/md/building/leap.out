@@ -1,0 +1,79 @@
+-I: Adding /soft/amber/latest/dat/leap/prep to search path.
+-I: Adding /soft/amber/latest/dat/leap/lib to search path.
+-I: Adding /soft/amber/latest/dat/leap/parm to search path.
+-I: Adding /soft/amber/latest/dat/leap/cmd to search path.
+-f: Source /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/BCD_aspirin_q4md/anchor_4_4_site1_-0.3_-1.1_7.9_0/md/building/anchor.leap.
+
+Welcome to LEaP!
+(no leaprc in search path)
+Sourcing: /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/BCD_aspirin_q4md/anchor_4_4_site1_-0.3_-1.1_7.9_0/md/building/anchor.leap
+Loading parameters: /soft/amber/latest/dat/leap/parm/parm99.dat
+Reading title:
+PARM99 for DNA,RNA,AA, organic molecules, TIP3P wat. Polariz.& LP incl.02/04/99
+Loading parameters: /soft/amber/latest/dat/leap/parm/frcmod.ff99SB
+Reading force field modification type file (frcmod)
+Reading title:
+Modification/update of parm99.dat (Hornak & Simmerling)
+Could not open file /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/inputs/aspirin_tleap_recharge.frcmod: No such file or directory
+----- Source: /soft/amber/latest/dat/leap/cmd/leaprc.gaff
+----- Source of /soft/amber/latest/dat/leap/cmd/leaprc.gaff done
+Log file: ./leap.log
+Loading parameters: /soft/amber/latest/dat/leap/parm/gaff.dat
+Reading title:
+AMBER General Force Field for organic molecules (Version 1.7, Nov 2013)
+Loading parameters: /soft/amber/latest/dat/leap/parm/frcmod.chcl3
+Reading force field modification type file (frcmod)
+Reading title:
+ chloroform frcmod file
+Loading library: /soft/amber/latest/dat/leap/lib/all_amino94.lib
+Could not open file allaminoct94.lib: not found
+Could not open database: allaminoct94.lib
+Loading library: /soft/amber/latest/dat/leap/lib/all_aminont94.lib
+Loading library: /soft/amber/latest/dat/leap/lib/solvents.lib
+Loading parameters: /home/bjagger/Desktop/cyclodextrin_data/parameters/q4md-CD/cD_aspirin/CD-Glycam_04l.dat
+Reading title:
+GLYCAM PARAMETERS (FOR AMBER 8.0, RESP 0.010), COPYRIGHT CCRC 2004
+Loading parameters: /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/inputs/CD-q4md.frcmod
+Reading force field modification type file (frcmod)
+Reading title:
+  For heterogeneous glycoconjugates
+Could not open file /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/inputs/aspirin_tleap_recharge.prepc: No such file or directory
+Loading Mol2 file: /home/bjagger/Desktop/cyclodextrin_data/parameters/q4md-CD/cD_aspirin/CD-MGO.mol2
+Reading MOLECULE named MGO
+Loading Mol2 file: /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/inputs/aspirin_tleap_recharge.mol2
+Reading MOLECULE named aspirin_tleap
+Loading PDB file: /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/BCD_aspirin_q4md/anchor_4_4_site1_-0.3_-1.1_7.9_0/md/holo_wet.pdb
+One sided connection. Residue: aspirin_tleap missing connect0 atom.
+  total atoms in file: 5322
+Total unperturbed charge:  -0.000100
+Total perturbed charge:    -0.000100
+Checking 'holo'....
+Warning: Close contact of 1.381346 angstroms between .R<APN 8>.A<H78 12> and .R<APN 8>.A<H77 11>
+Checking parameters for unit 'holo'.
+Checking for bond parameters.
+Checking for angle parameters.
+check:  Warnings: 1
+Unit is OK.
+Checking Unit.
+Building topology.
+Building atom parameters.
+Building bond parameters.
+Building angle parameters.
+Building proper torsion parameters.
+Building improper torsion parameters.
+ total 6 improper torsions applied
+Building H-Bond parameters.
+Incorporating Non-Bonded adjustments.
+Not Marking per-residue atom chain types.
+Marking per-residue atom chain types.
+  (Residues lacking connect0/connect1 - 
+   these don't have chain types marked:
+
+	res	total affected
+
+	APN	1
+	WAT	1718
+  )
+ (no restraints)
+Writing pdb file: /scratch/bjagger/projects/seekr/BCD/aspirin_q4md/BCD_aspirin_q4md/anchor_4_4_site1_-0.3_-1.1_7.9_0/md/building/holo_leap.pdb
+	Quit
