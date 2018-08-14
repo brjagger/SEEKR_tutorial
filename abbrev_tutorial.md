@@ -1,4 +1,4 @@
-# Simulation Enables Estimation of Kinetic Rates (SEEKR): a Multiscale Simulation Approach for Calculating Binding Kinetics
+# Simulation Enabled Estimation of Kinetic Rates (SEEKR): a Multiscale Simulation Approach for Calculating Binding Kinetics
 
 In this abbreviated version of the tutorial, you will learn how to analyze the results of a SEEKR calculation.
 
