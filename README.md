@@ -29,6 +29,7 @@ To run a complete SEEKR calculation, you will need the following installed:
    - scipy
    - MDAnalysis
    - matplotlib
+   - dill
    
  ## SEEKR Tutorials
  
