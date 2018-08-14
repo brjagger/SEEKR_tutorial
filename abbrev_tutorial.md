@@ -18,90 +18,37 @@ The abbreviated tutorial requires the following installed:
    - scipy
    - MDAnalysis
    - matplotlib
+   - dill
+   
+ If you are using the virtual machine that we have distributed, everything is already installed for you!
    
    
 ## The SEEKR input file
 
-In the tutorial directory, you will find the SEEKR input file "bcd_aspirin_complete.seekr".
+In the SEEKR tutorial directory, you will find the SEEKR input file "bcd_aspirin_complete.seekr".
 Open this file with a text editor. This is a completed input file that was used to generate the 
 data we will be working with.
-Let's briefly take a look at its contents.
+Let's briefly take a look at its contents...
 
 * The ```project details``` setion contains general information for SEEKR such as where to create the filetree, and important 
 parameters related to the lengths of simulations to be run.
 * The ```Ligand/receptor information``` block specifies the locations of structures that define the ligand and receptor. 
-* The ```NAMD TCL``` block contains all of the information that must be passed to NAMD to run the milestoning simulations.
-* The ```Active Sites``` block is where the mielstones are defined by specifying the coordinates for the bound state, and the milestone spacing.
-
-
-
-
-In the NAMD TCl block, the `ligrange` corresponds to the atom numbers of the aspirin ligand and
+* The ```NAMD TCL``` block contains all of the information that must be passed to NAMD to run the milestoning simulations. the 
+`ligrange` corresponds to the atom numbers of the aspirin ligand and
 `recrange` corresponds to the atom numbers of the cyclodextrin. 
 If you look in the .pdb files of the host and guest, you will see that the cyclodextrin is residues 
 1 to 147 and the ligand is 20 residues (therefore 148 to 168).
-
-In the "Active Sites" block, we need to define the binding site and the vector along which to place
-the milestones.
-The `r` setting specifies the outermost milestone spacing in Angstroms, **set this to 13.5**
-the `r_low` value corresponds to the starting milesone radius in angstroms-- **set this to 1.5 also**
-the `x,y,z` values correspond to the coordinates of our bound state. To get these we will need to use 
-VMD.
-
-From the tutorial directory, execute `vmd inputs/bcd_q4md_holo_wet.pdb`. This will load the cyclodextrin 
-structure for us.
-
-Open the tkconsole `Extensions -> Tk Console` we will use this to get the COM coordinates of our molecule.
-
-In the Tk Console, type ```set site [atomselect top "resname MGO"]``` this will store this selection in te variable `site`
-The type ```measure center $site```. the output will be the x, y, z coordinates of the cyclodextrin ceter of mass.
-
-Set thes in the corresponding lines in the SEEKR input file.
-Mine was:
-`x 0.0275, y -0.0459, z 0.4599,`
-
-Then type in the Tk console ```$site get serial``` and enter this for the atomid filed.
-
-Now we need to choose where to place the ligand on each milestone.
-
-In the tutorial directory, there should be a script called 'moduseful.tcl'. In the tkconsole window, type "source moduseful.tcl". Then run the following 
-command:
-
- ```eye_vec "0.0275, -0.0459, 0.4599"```
-
- (These are the coordinates for the center of binding site). 
-
-The script should draw a thin line running from the binding site to where your eye was on the screen. Rotate the molecule to see the line. In order to obtain a good result for this vector, you will want to rotate your view in VMD so that you can see directly into the binding pocket. You can use the above command to draw another line, note the values for the vector. Don't worry about the magnitude of this line, SEEKR will automatically normalize it.
-
-Set the 'vx', 'vy', 'vz' values to be the values you obtained.
-
-My values were
-
-`vx -3.503, vy -11.602, vz 82.823`
-
-The parameters 'startvx', 'startvy', and 'startvz' allow more control over how the ligand is arranged along the milestones. This vector points from the origin to the location on the first milestone where to start the (vx, vy, vz) vector. If unsure how to modify this, then make 'startvx', 'startvy', and 'startvz' to be the same as 'vx', 'vy', and 'vz'.
-
-Set the increment to be 1.5, this is the spacing between milestones in Angstroms. 
-
-Alternatively, you can manually specify the placement of milestones using the
-`radius list` option and provide a string of distances (e.g. 1 2 3 4 6 8 )
-
-the option looks like this: `radius_list 1 1.5 2 2.5 3 4 6 8 10 12 14`
-
-NOTE: the radius lis option will override the increment option
-
-for our example, using evenly spaced milestones generated with `increment` will be just fine.
-
-I have already filled out the MD parameters block for you to save some time. For our host-guest example, the leap commands are somewhat complicated in order to build the cyclodextrin parameter file, but for typical protein-ligand systems this is more striaghtforward.
-
-After the leap inputs, you should see parameter specificatins for each of the 
-simulation phases of the milestoning calculation: 
-
-* Minimization
-* Temperature Equilibration
-* Ensemble Equilibration
-* Reversal and Forward
-* Brownian Dynamics 
+* The ```Active Sites``` block is where the mielstones are defined by specifying the coordinates for the bound state, and the milestone spacing.
+* The ```ligand positions``` block contains the ```reject clashes``` option which prevents milestones from being generated when there is a steric clash.
+* The ```MD Parameters``` block contains all of the information required for the Molecular Dynamics portion of the calculation
+   - The ```LEaP``` section details force field parameterization using Amber's LEaP package.
+   -  After the leap inputs, you should see parameter specificatins for each of the 
+   simulation phases of the milestoning calculation: 
+      * Minimization
+      * Temperature Equilibration
+      * Ensemble Equilibration
+      * Reversal and Forward
+      * Brownian Dynamics 
 
 Again, I have filled these out for the sake of time, but take a look at the parameters for each section.
 
