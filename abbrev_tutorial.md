@@ -145,7 +145,7 @@ incubation time vector that can be used to calculate the on rate. You will see a
 
 **Calculating the Off Rate**
 
-The off rate can be calculated in exacytly the same way usting the --off flag: 
+The off rate can be calculated in exacytly the same way using the --off flag: 
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
 
