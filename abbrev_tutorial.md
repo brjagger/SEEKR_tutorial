@@ -25,7 +25,7 @@ The abbreviated tutorial requires the following installed:
    
 ## The SEEKR input file
 
-In the SEEKR tutorial directory, you will find the SEEKR input file "bcd_aspirin_complete.seekr".
+In the SEEKR tutorial directory, you will find the SEEKR input file ```bcd_aspirin_complete.seekr```.
 Open this file with a text editor. This is a completed input file that was used to generate the 
 data we will be working with.
 Let's briefly take a look at its contents...
