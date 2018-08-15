@@ -199,5 +199,7 @@ execute :
  Tutorial written by: 
  
  Benjamin Jagger 
+ 
  bjagger@ucsd.edu
+ 
  Graduate Student Amaro and McCammon Groups
