@@ -198,6 +198,6 @@ execute :
  
  Tutorial written by: 
  
- Benjamin Jagger .   
- bjagger@ucsd.edu . 
- Graduate Student Amaro and McCammon Groups
+ Benjamin Jagger<br/> 
+ bjagger@ucsd.edu<br/> 
+ Graduate Student Amaro and McCammon Groups<br/>
