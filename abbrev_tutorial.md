@@ -131,13 +131,13 @@ analze_conv.py requires a few basic inputs (with additional options for the vari
    - output files from MD and BD simulations to parse for transition events
    - definition of which milestones correspond to the bound state
 
-Execute ``` python analyze_conv.py -h``` for more information about useage as well as additional arguments.
+1. Execute ``` python analyze_conv.py -h``` for more information about useage as well as additional arguments.
 
 The filetree `bcd_tutorial_aspirin` has all of the data we need to calculate the kinetic rate constants of interest.
 
 **Calculate the On Rate**
 
-Inside the bcd_tutorial_aspirin directory, execute
+2. Inside the bcd_tutorial_aspirin directory, execute
 
 ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on -v ```
 
@@ -148,11 +148,11 @@ incubation time vector that can be used to calculate the on rate. You will see a
 
 **Calculating the Off Rate**
 
-The off rate can be calculated in exacytly the same way using the --off flag: 
+3. The off rate can be calculated in exacytly the same way using the --off flag: 
 
 ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
 
-Similarly, we can calculate a **binding free energy profile**:
+4. Similarly, we can calculate a **binding free energy profile**:
 
 ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0 --free_energy ```
 
@@ -161,28 +161,27 @@ Similarly, we can calculate a **binding free energy profile**:
 
 SEEKR now has the capability to perform basic convergence analysis/estimates.
 
-First lets look at the convergence of the **on and off rates**.
+5. First lets look at the convergence of the **on and off rates**.
 execute :
 
 ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on --conv_filename on_conv.txt --conv_stride 100```
 
 This will calculate the on rate with an interval of 100 reversals.
 
-We can do the same for the off rate:
+6. We can do the same for the off rate:
 
 ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --off --conv_filename off_conv.txt --conv_stride 100```
 
 
-We can then plot the data in the output text files using somethinng like xmgrace. You may need to delete the header line
-in this file depending on your plotting program. 
+It is often informative to plot the radius vs. delta G to get a feel for the depth of the free energy well. 
 
 
-SEEKR can also provide **convergence estimates on a per milestone basis**.
+7. SEEKR can also provide **convergence estimates on a per milestone basis**. Execute:
  
 
 ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100 --plt_name Aspirin_Q4MD```
 
-Two .png figures will be saved, one that plots the incubation time of each milestone and one that plots the transition counts between all milestones. View these figures with your favorite graphics program, for example:
+8. Two .png figures will be saved, one that plots the incubation time of each milestone and one that plots the transition counts between all milestones. View these figures with your favorite graphics program, for example:
 
 ```display Aspirin_Q4MD_Incubation_Time_Convergence.png```
 
@@ -190,3 +189,14 @@ These plots should give a general idea of which milestones have been sufficientl
 and which contribute most to the calculated rate constants.
 
 analyze_conv.py also writes out .pkl files of the raw data and the figures so that additional postprocessing may be performed as desired.
+
+
+## Conclusions
+ At this point you should have a feel for the basic functionalities included in SEEKR. The software is always growing, adding new analyses as well as new milestoning functionalities. Be sure to check out the SEEKR GitHub to stay up do date with the latest additions: https://github.com/nbcrrolls/SEEKR.
+ 
+ 
+ Tutorial written by: 
+ 
+ Benjamin Jagger 
+ bjagger@ucsd.edu
+ Graduate Student Amaro and McCammon Groups
