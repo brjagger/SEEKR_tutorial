@@ -195,9 +195,3 @@ execute :
 ## Conclusions
  At this point you should have a feel for the basic functionalities included in SEEKR. The software is always growing, adding new analyses as well as new milestoning functionalities. Be sure to check out the SEEKR GitHub to stay up do date with the latest additions: https://github.com/nbcrrolls/SEEKR.
  
- 
- Tutorial written by: 
- 
- Benjamin Jagger<br/> 
- bjagger@ucsd.edu<br/> 
- Graduate Student Amaro and McCammon Groups<br/>
