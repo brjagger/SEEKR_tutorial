@@ -133,28 +133,29 @@ analze_conv.py requires a few basic inputs (with additional options for the vari
 
 1. Execute ``` python analyze_conv.py -h``` for more information about useage as well as additional arguments.
 
-The filetree `bcd_tutorial_aspirin` has all of the data we need to calculate the kinetic rate constants of interest.
+   The filetree `bcd_tutorial_aspirin` has all of the data we need to calculate the kinetic rate constants of interest.
 
 **Calculate the On Rate**
 
 2. Inside the bcd_tutorial_aspirin directory, execute
 
-```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on -v ```
+   ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on -v ```
 
-This calculates the on rate using both milestone 0 and 9 as bound states, aka sink states.
+   This calculates the on rate using both milestone 0 and 9 as bound states, aka sink states.
 
-SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix and 
-incubation time vector that can be used to calculate the on rate. You will see a lot of output because of the addition of the verbose flag, take some time to inspect this.
+   SEEKR will go in to each anchor and extract the transition statistics. Then it will create a transition probability matrix 
+   and incubation time vector that can be used to calculate the on rate. You will see a lot of output because of the 
+   addition of the verbose flag, take some time to inspect this.
 
 **Calculating the Off Rate**
 
 3. The off rate can be calculated in exacytly the same way using the --off flag: 
 
-```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
+   ```python PATH/TO/SEEKR/bin/analyze.py -m milestones.xml -b 0,9 --off ```
 
 4. Similarly, we can calculate a **binding free energy profile**:
 
-```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0 --free_energy ```
+   ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0 --free_energy ```
 
 
 ## SEEEKR Convergence Analysis
@@ -164,31 +165,31 @@ SEEKR now has the capability to perform basic convergence analysis/estimates.
 5. First lets look at the convergence of the **on and off rates**.
 execute :
 
-```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on --conv_filename on_conv.txt --conv_stride 100```
+   ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --on --conv_filename on_conv.txt --conv_stride 100```
 
-This will calculate the on rate with an interval of 100 reversals.
+   This will calculate the on rate with an interval of 100 reversals.
 
 6. We can do the same for the off rate:
 
-```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --off --conv_filename off_conv.txt --conv_stride 100```
+   ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --off --conv_filename off_conv.txt --conv_stride 100```
 
 
-It is often informative to plot the radius vs. delta G to get a feel for the depth of the free energy well. 
+   It is often informative to plot the radius vs. delta G to get a feel for the depth of the free energy well. 
 
 
 7. SEEKR can also provide **convergence estimates on a per milestone basis**. Execute:
  
 
-```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100 --plt_name Aspirin_Q4MD```
+   ```python PATH/TO/SEEKR/bin/analyze_conv.py -m milestones.xml -b 0,9 --milestone_conv --conv_stride 100 --plt_name Aspirin_Q4MD```
 
 8. Two .png figures will be saved, one that plots the incubation time of each milestone and one that plots the transition counts between all milestones. View these figures with your favorite graphics program, for example:
 
-```display Aspirin_Q4MD_Incubation_Time_Convergence.png```
+   ```display Aspirin_Q4MD_Incubation_Time_Convergence.png```
 
-These plots should give a general idea of which milestones have been sufficiently sampled, which are potentially undersampled, 
-and which contribute most to the calculated rate constants.
+   These plots should give a general idea of which milestones have been sufficiently sampled, which are potentially undersampled, 
+   and which contribute most to the calculated rate constants.
 
-analyze_conv.py also writes out .pkl files of the raw data and the figures so that additional postprocessing may be performed as desired.
+   analyze_conv.py also writes out .pkl files of the raw data and the figures so that additional postprocessing may be performed as desired.
 
 
 ## Conclusions
